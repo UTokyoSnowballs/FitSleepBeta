@@ -29,5 +29,6 @@ In the datasets, each sample corresponds to an epoch in that night's sleep of th
 - columne T (fitbit_sleep_t+2): the sleep stage of epoch (t+2) measured by Fitbit Charge 2
 - columne U (fitbit_sleep_t+3): the sleep stage of epoch (t+3) measured by Fitbit Charge 2
 
-# Current only 3 epochs before and after the current epoch are used as features. It's possible to consider more historical and future epochs into modelling. 
-# Macro-level features like sex, age, total sleep time, total wake time, sleep efficiency, wake ratio, light ratio, deep ratio, and REM ratio doesn't vary (ie. the values are the same in all samples) within a dataset. 
+Current only 3 epochs before and after the current epoch are used as features. It's possible to consider more historical and future epochs into modelling. 
+
+Macro-level features like sex, age, total sleep time, total wake time, sleep efficiency, wake ratio, light ratio, deep ratio, and REM ratio doesn't vary (ie. the values are the same in all samples) within a dataset. 
