@@ -5,6 +5,8 @@ The data that you can download here were collected using a Fitbit Charge 2 and a
 
 In sleep science, a whole night's data are usually cut into short intervals called epochs. The AASM standard recommends 30s as the window size of each interval; an 8h sleep therefore consists of 960 epochs. Sleep staging is then conducted epoch-by-epoch sliding from the beginning to the end of the sleep. 
 
+In this project, the problem of interest was formulated as a four-category classification problem. Classfication is performed epoch-by-epoch. The input consists of the features extracted from Fitbit sleep and heart rate data in epoch t, and the output is the sleep stage of epoch t (one of the following catogories: wakefulness=4, REM sleep=3, light sleep=2, deep sleep=1). Nested cross validation with grid search was used to tune the models [1]. Performance of the classfiers is evaluated based on the accuracy on each sleep stage and multiclass AUC. The baseline of Fitbit proprietary algorithm is: ACC(wake)=35.0%, ACC(light)=69.3%, ACC(deep)=60.9%, ACC(REM)=59.6%, AUC=0.78.
+
 In the datasets, each sample corresponds to an epoch in that night's sleep of that participant; an 8h sleep consists of 960 epochs and therefore will generate 960 samples in the dataset. The total number of epochs differs from person to person as their total sleep time was different. Each dataset consists of labels and 20 features. There is no missing data and no wrong data. Some explanations of the columns.
 
 - colomn A (label): the sleep stage measured with the medical device in epoch t
@@ -32,3 +34,5 @@ In the datasets, each sample corresponds to an epoch in that night's sleep of th
 Current only 3 epochs before and after the current epoch are used as features. It's possible to consider more historical and future epochs into modelling. 
 
 Macro-level features like sex, age, total sleep time, total wake time, sleep efficiency, wake ratio, light ratio, deep ratio, and REM ratio doesn't vary (ie. the values are the same in all samples) within a dataset. 
+
+[1] Liang Z, Chapa-Martell MA. Achieving accurate ubiquitous sleep sensing with consumer wearable activity wristbands using multi-class imbalanced classification. PICOM 2019. 
